@@ -1,0 +1,27 @@
+﻿@model List<MyFoursquareApp.Models.Item2>
+@{
+    ViewData["Title"] = "My Foursquare Application";
+}
+
+<h2>My Foursquare Checkins</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        
+        @foreach (var checkIn in Model)
+        {
+            <h3 style="background-color: yellow; color:blue">@checkIn.venue.name</h3>
+            <ul>
+                <li>Address:</li>
+                @foreach (var addressLine in checkIn.venue.location.formattedAddress)
+                {
+                    <ul>
+                        <li>@addressLine</li>    
+                    </ul>
+                }
+                <li>@checkIn.venue.contact.phone</li>
+            </ul>   
+            <hr/>
+        }
+    </div>
+</div>
